@@ -3,7 +3,7 @@ int startY = 250;
 int endX = 250;
 int endY = 250;
 int counter = 0;
-
+ 
 void setup()
 {
   size(500,500);
