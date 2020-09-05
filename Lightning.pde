@@ -1,42 +1,41 @@
 int startX = 250;
-int startY = 250;
+int startY = 0;
 int endX = 250;
-int endY = 250;
-int counter = 0;
- 
+int endY = 0;
+int StrokeWeight = 30;
+float opacity = 126;
+
 void setup()
 {
   size(500,500);
-  background(135,206,235);
-  strokeWeight(2);
+  background(50);
+  strokeWeight(StrokeWeight);
 }
 void draw()
 {
-  stroke(255,255,0);
   if (endY < 500 && endX < 500)
-  {
-    while(counter < 20)
     {
-    endX = startX + (int)(Math.random()*50 - 25);
-    endY = startY + (int)(Math.random()*50 - 25);
+    stroke(255,255,0);
+    strokeWeight(StrokeWeight);
+    endX = startX + (int)(Math.random()*100 - 50);
+    endY = startY + (int)(Math.random()*50 + 20);
     line(startX,startY,endX,endY);
-    
-    ellipse(endX,endY,5,5);
-    counter = counter + 1;
+    StrokeWeight = StrokeWeight - 2;
     }
     startX = endX;
     startY = endY;
-    counter = 0;
     
   }
-}
+
 void mousePressed()
 {
-  background(135,206,235);
-  startX = 250;
-  startY = 250;
-  endX = 250;
-  endY = 250;
-  counter = 0;
+  stroke(50);
+  fill(50,50,50,127);
+  rect(0,0,500,500);
+  stroke(255,255,0);
+  startX = (int)(Math.random()*400+50);
+  startY = 0;
+  endX = startX;
+  endY = startY;
+  StrokeWeight = 30;
 }
-
